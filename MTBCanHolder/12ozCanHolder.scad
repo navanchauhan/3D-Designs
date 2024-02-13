@@ -2,16 +2,18 @@
 
 can_height=122 + 10; // 12.cm
 base_width=20; // 2cm
-base_depth=5; // 1cm
-bolt_head_diameter=10; //6mm for M5 bolt
-dist_between_holes=64; // 2.14inch / 64mm
+base_depth=10; // 1cm
+screw_small_depth = 3;
+screw_thread_diameter = 9;
+bolt_head_diameter=12; //6mm for M5 bolt
+dist_between_holes=55; // 2.14inch / 64mm
 hole_offset=25; // 2cm from origin
 bottom_lip_height=4.5; // 4.5mm 2cm (1cm + xyz)
 bottom_lip_thickness=5; // 5mm
 bottom_lip_base=5; // 10mm
-bottom_lip_extrusion=17.5; // 10.5mm
+bottom_lip_extrusion=12.5 + base_depth; // 10.5mm
 upper_lip_base=5;
-upper_lip_thickness=28; // height basically
+upper_lip_thickness=23 + base_depth; // height basically
 upper_pushness_thickness=3; 
 upper_pusher_base=10;
 upper_can_hook_height=10;
@@ -20,6 +22,7 @@ upper_can_hook_width=5;
 upper_hook_radius=10;
 upper_lip_difference=2.50;
 
+/*
 translate([-20,120,base_depth-2]) {
 
 rotate([64,0,20]){
@@ -31,7 +34,7 @@ import("soda_can.stl");
 }
 
 }
-
+*/
 
 // Distance from tip to base should 7.5mm
 // Distance from tip to left face 6 mm
@@ -53,6 +56,22 @@ linear_extrude(base_depth) {
             }
         }
     }
+}
+
+
+linear_extrude(screw_small_depth) {
+            translate([base_width/2,hole_offset,0]){
+                difference() {
+                circle(d=bolt_head_diameter);
+                    circle(d=screw_thread_diameter);
+                }
+            translate([0,(bolt_head_diameter)+dist_between_holes,0]) {
+                difference() {
+                    circle(d=bolt_head_diameter);
+                    circle(d=screw_thread_diameter);
+                }
+                }
+            }
 }
 
 // Upper Lip
