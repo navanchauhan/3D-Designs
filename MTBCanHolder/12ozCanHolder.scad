@@ -1,7 +1,22 @@
+$fn=100;
 
+/*
+Can holder MTB
 
-can_height=122 + 10; // 12.cm
-base_width=20; // 2cm
+Tested w/
+
+Infill: 40%
+*/
+
+/*
+Normal 12oz can: 122
+Keystone 12oz: 133
+Yerba Mate: 15.5 oz
+Red Bull: 8.4oz: 136
+
+*/
+can_height=136 + 8; // 12.cm
+base_width=15; // 2cm
 base_depth=10; // 1cm
 screw_small_depth = 3;
 screw_thread_diameter = 9;
@@ -14,8 +29,8 @@ bottom_lip_base=5; // 10mm
 bottom_lip_extrusion=12.5 + base_depth; // 10.5mm
 upper_lip_base=5;
 upper_lip_thickness=23 + base_depth; // height basically
-upper_pushness_thickness=3; 
-upper_pusher_base=10;
+upper_pushness_thickness=4; 
+upper_pusher_base=15;
 upper_can_hook_height=10;
 upper_can_hook_base=5;
 upper_can_hook_width=5;
@@ -35,6 +50,7 @@ import("soda_can.stl");
 
 }
 */
+
 
 // Distance from tip to base should 7.5mm
 // Distance from tip to left face 6 mm
@@ -82,8 +98,8 @@ translate([0,-upper_lip_base,0]) {
 }
 }
 
-translate([-2.5,-upper_lip_difference,base_depth/1.5]) {
-    linear_extrude(upper_lip_thickness-10-(base_depth/1.5)){
+translate([-2.5,-upper_lip_difference,base_depth/2.5]) {
+    linear_extrude(upper_lip_thickness-10-(base_depth/2.5)){
     square([base_width+5,upper_lip_difference]);
     }
 }
@@ -114,7 +130,6 @@ rotate([0,-90,0]){
 pieSlice(90+25,upper_hook_radius,base_width);
 }
 }
-
 
 // Bottom Lip
 
