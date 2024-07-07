@@ -1,5 +1,5 @@
 // Record Holder
-// Tested with 3M Picture Hanging Velcro Command Strips
+// Tested with 2 Large 3M Picture Hanging Command Strips
 
 // Variables 
 // 1 unit = 1 mm 
