@@ -10,6 +10,8 @@ thickness = 6;
 
 $fn = $preview ? 10 : 100;
 
+rotate([0,0,180]) {
+
 // Main Body
 cube([length, 10, 20]);
 
@@ -31,4 +33,6 @@ translate([0, thickness, thickness]) {
             }
         }
     }
+}
+
 }
